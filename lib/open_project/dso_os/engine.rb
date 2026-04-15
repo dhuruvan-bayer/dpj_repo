@@ -50,6 +50,11 @@ module OpenProject::DsoOs
 
     config.to_prepare do
       ::OpenProject::DsoOs::Hooks
+      require_relative "../../api/v3/wiki_pages/wiki_pages_by_project_api"
+    end
+
+    add_api_endpoint "API::V3::Workspaces::NestedApis" do
+      mount ::API::V3::WikiPages::WikiPagesByProjectAPI
     end
 
     config.after_initialize do
