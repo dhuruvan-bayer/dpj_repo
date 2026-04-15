@@ -1,0 +1,24 @@
+# Calls the reusable SonarQube workflow from eep-da-dpj
+# Runs tests with coverage, RuboCop linting, and performs SonarQube scan
+
+name: SonarQube Scan
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  sonar:
+    uses: bayer-int/eep-da-dpj/.github/workflows/_SonarQube.yaml@main
+    secrets: inherit
+    with:
+      sonar_project_key: ${{ vars.FAWKES_SONAR_PROJECT_KEY }}
+      run_tests: true
+      plugin_name: openproject-custom_links
+      run_rubocop: true
+      enforce_quality_gate: false  # Set to true to fail on Quality Gate failure
