@@ -19,6 +19,6 @@ jobs:
     with:
       sonar_project_key: ${{ vars.FAWKES_SONAR_PROJECT_KEY }}
       run_tests: true
-      plugin_name: openproject-custom_links
+      plugin_name: openproject-dso_os
       run_rubocop: true
       enforce_quality_gate: false  # Set to true to fail on Quality Gate failure

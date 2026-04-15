@@ -1,4 +1,4 @@
-module OpenProject::CustomLinks
+module OpenProject::DsoOs
   ##
   # Given a hook name as defined in the core the main way to call it is defining
   # a method with the same name in your Hook class (e.g. view_layouts_base_sidebar here).
@@ -7,7 +7,7 @@ module OpenProject::CustomLinks
   # and the `view_layouts_base_html_head` hooks.
   class Hooks < OpenProject::Hook::ViewListener
     # here we render a partial
-    # render_on :homescreen_after_links, partial: 'hooks/custom_links/_homescreen_after_links'
+    # render_on :homescreen_after_links, partial: 'hooks/dso_os/_homescreen_after_links'
 
     ##
     # Any string returned by this method will be rendered at the position of
@@ -17,7 +17,7 @@ module OpenProject::CustomLinks
     # You may also just return a string directly, though.
     # def view_layouts_base_sidebar(context={})
     #   context[:controller].send(:render_to_string, {
-    #     :partial => "hooks/custom_links/_view_layouts_base_sidebar",
+    #     :partial => "hooks/dso_os/_view_layouts_base_sidebar",
     #     :locals => context
     #   })
     # end

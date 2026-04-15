@@ -3,14 +3,14 @@
 require 'active_support/dependencies'
 require 'open_project/plugins'
 
-module OpenProject::CustomLinks
+module OpenProject::DsoOs
   class Engine < ::Rails::Engine
-    engine_name :openproject_custom_links
+    engine_name :openproject_dso_os
 
     include OpenProject::Plugins::ActsAsOpEngine
 
     register(
-      'openproject-custom_links',
+      'openproject-dso_os',
       :author_url => 'https://openproject.org',
       :requires_openproject => '>= 13.1.0'
     ) do
@@ -21,7 +21,7 @@ module OpenProject::CustomLinks
       #
       # You may have to enable the project module ("Kittens module") under project
       # settings before you can see the menu entry.
-      project_module :custom_links do
+      project_module :dso_os do
         permission :view_tests,
                    {
                       test: %i[index],
@@ -49,7 +49,7 @@ module OpenProject::CustomLinks
     end
 
     config.to_prepare do
-      ::OpenProject::CustomLinks::Hooks
+      ::OpenProject::DsoOs::Hooks
     end
 
     config.after_initialize do
