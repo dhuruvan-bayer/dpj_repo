@@ -37,15 +37,6 @@ module OpenProject::DsoOs
                    permissible_on: [:project]
       end
 
-      menu :project_menu,
-           :test,
-           { controller: '/test', action: 'index' },
-           after: :overview,
-           param: :project_id,
-           caption: "Custom Links",
-           icon: :squirrel,
-           html: { id: "test-menu-item" },
-           if: ->(project) { true }
     end
 
     config.to_prepare do
